@@ -1,7 +1,7 @@
 ﻿namespace HelloWebApi.Entities
 {
     /// <summary>
-    ///     This is a greeting entity. Typically entities would be defined in a separate project.
+    ///     This is a greeting entity.
     /// </summary>
     public class Greeting
     {
