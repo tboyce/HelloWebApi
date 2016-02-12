@@ -9,8 +9,9 @@ namespace HelloWebApi.Controllers
     /// <summary>
     ///     A Web API controller representing the greetings resource.
     ///     Resources are the building blocks of a REST API.
-    ///     You can implement whichever HTTP verbs make sense for your use case.
     ///     Web API will automatically route incoming HTTP requests by matching the verb on the request to the attributes on the methods below.
+    ///     You can implement whichever HTTP verbs make sense for your use case.
+    ///     Web API will automatically return an error if a request contains a verb that is not implemented by your controller.
     /// </summary>
     public class GreetingsController : ApiController
     {
