@@ -7,7 +7,10 @@ using HelloWebApi.Repositories;
 namespace HelloWebApi.Controllers
 {
     /// <summary>
-    ///     A Web API controller representing the greeting resource. Resources are the building blocks of a REST API.
+    ///     A Web API controller representing the greetings resource.
+    ///     Resources are the building blocks of a REST API.
+    ///     You can implement whichever HTTP verbs make sense for your use case.
+    ///     Web API will automatically route incoming HTTP requests by matching the verb on the request to the attributes on the methods below.
     /// </summary>
     public class GreetingsController : ApiController
     {
