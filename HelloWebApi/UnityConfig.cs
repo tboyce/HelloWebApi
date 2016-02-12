@@ -7,7 +7,8 @@ using Unity.WebApi;
 namespace HelloWebApi
 {
     /// <summary>
-    ///     This class configures the Unity dependency injection container and registers it with Web API.
+    ///     Unity is a dependency injection container.
+    ///     This class configures the Unity and registers it with Web API.
     /// </summary>
     public static class UnityConfig
     {
@@ -15,13 +16,13 @@ namespace HelloWebApi
         {
             // create a Unity container
             var container = new UnityContainer();
-            
+
             // create an AutoMapper configuration
             var config = AutomapperConfig.Configure();
 
             // register a dependency - this is the most common way to register (this can actually be done by convention, but done explicitly here for demo purposes)
             container.RegisterType<IGreetingRepository, GreetingRepository>();
-            // here we are controlling how Unity creates the instance by specifying an injection factory
+            // here we are registering AutoMapper and controlling how Unity creates the instance by specifying an injection factory
             container.RegisterType<IMapper>(new InjectionFactory(x => config.CreateMapper()));
 
             // Web API has built in support for dependency injection by setting the DependencyResolver property on the configuration object
