@@ -1,0 +1,1 @@
+﻿The organization of this project was deliberately kept simple, but is also a good starting point when creating a new API.

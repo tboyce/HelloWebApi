@@ -125,6 +125,7 @@
     <Content Include="Models\README.md" />
     <Content Include="Repositories\README.md" />
     <Content Include="ServiceAgents\README.md" />
+    <Content Include="README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
