@@ -1,6 +1,6 @@
 # HelloWebApi
 
-Demonstrates REST, DTO, dependency injection and repository patterns.
+Demonstrates REST, DTO, dependency injection and repository patterns using ASP.NET Web API.
 Concerns suchs as security and logging have been omitted from this demo, but would be required in a real enterprise service.
 
 Run the project and go to [http://localhost:28065/api/greetings](http://localhost:28065/api/greetings) in your browser.
