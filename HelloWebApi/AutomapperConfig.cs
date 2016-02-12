@@ -2,6 +2,10 @@
 
 namespace HelloWebApi
 {
+    /// <summary>
+    /// AutoMapper is used to map between entities and DTOs.
+    /// This class builds an automapper configuration.
+    /// </summary>
     public static class AutomapperConfig
     {
         public static MapperConfiguration Configure()
