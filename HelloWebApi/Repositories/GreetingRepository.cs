@@ -6,6 +6,7 @@ namespace HelloWebApi.Repositories
 {
     /// <summary>
     ///     This is the implementation of the greeting repository interface.
+    ///     In a real application this would probably use Entity Framework to access a database.
     /// </summary>
     internal class GreetingRepository : IGreetingRepository
     {
