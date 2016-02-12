@@ -8,7 +8,7 @@ namespace HelloWebApi
 {
     /// <summary>
     ///     Unity is a dependency injection container.
-    ///     This class configures the Unity and registers it with Web API.
+    ///     This class configures Unity and registers it with Web API.
     /// </summary>
     public static class UnityConfig
     {
@@ -20,8 +20,10 @@ namespace HelloWebApi
             // create an AutoMapper configuration
             var config = AutomapperConfig.Configure();
 
-            // register a dependency - this is the most common way to register (this can actually be done by convention, but done explicitly here for demo purposes)
+            // register a dependency, in this case a mapping from the greeting repository interface to the greeting repository implementation
+            // this is a very common way to register dependencies (and can actually be done by convention, but done explicitly here for demo purposes)
             container.RegisterType<IGreetingRepository, GreetingRepository>();
+
             // here we are registering AutoMapper and controlling how Unity creates the instance by specifying an injection factory
             container.RegisterType<IMapper>(new InjectionFactory(x => config.CreateMapper()));
 
