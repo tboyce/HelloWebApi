@@ -62,6 +62,7 @@ namespace HelloWebApi.Repositories
             {
                 var greeting = new Greeting
                 {
+                    Id = 1,
                     Message = "Hello world"
                 };
                 _greetings = new List<Greeting> {greeting};
