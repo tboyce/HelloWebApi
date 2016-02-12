@@ -1,1 +1,3 @@
 ﻿The organization of this project was deliberately kept simple, but is also a good starting point when creating a new API.
+For the most part this organization is arbitrary, but putting API controllers in the Controllers namespace is a convention that Web API expects.
+It would take additional configuration to change that so you should follow the convention unless there is a really good reason not to.
