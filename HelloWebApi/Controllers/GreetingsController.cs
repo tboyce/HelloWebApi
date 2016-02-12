@@ -15,8 +15,8 @@ namespace HelloWebApi.Controllers
         private readonly IMapper _mapper;
 
         /// <summary>
-        ///     This is dependency injection. We specify interfaces to be injected into the constructor and Unity takes care of
-        ///     creating an instance and passing it in.
+        ///     This is dependency injection. We specify interfaces to be injected into the constructor.
+        ///     Because we registered Unity with Web API as a dependency resolver, it knows to ask Unity for dependencies when creating controller instances.
         /// </summary>
         public GreetingsController(IGreetingRepository greetingRepository, IMapper mapper)
         {
