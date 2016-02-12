@@ -7,7 +7,7 @@ using HelloWebApi.Repositories;
 namespace HelloWebApi.Controllers
 {
     /// <summary>
-    ///     A controller representing the greeting resource. Resources are the building blocks of a REST API.
+    ///     A Web API controller representing the greeting resource. Resources are the building blocks of a REST API.
     /// </summary>
     public class GreetingsController : ApiController
     {
