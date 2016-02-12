@@ -30,7 +30,7 @@ namespace HelloWebApi.Repositories
         /// </summary>
         public Greeting Get(int id)
         {
-            return _greetings.ElementAtOrDefault(id);
+            return _greetings.SingleOrDefault(x => x.Id == id);
         }
 
         /// <summary>
