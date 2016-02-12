@@ -1,3 +1,3 @@
 # HelloWebApi
 
-Run the project and go to http://localhost:28065/api/greetings in your browser.
+Run the project and go to [http://localhost:28065/api/greetings](http://localhost:28065/api/greetings) in your browser.
