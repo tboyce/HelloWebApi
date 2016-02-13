@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Web.Http;
+using System.Web.Http.Results;
 using AutoMapper;
 using HelloWebApi.Models;
 using HelloWebApi.Repositories;
@@ -64,22 +66,27 @@ namespace HelloWebApi.Controllers
         ///     Add a new greeting.
         /// </summary>
         [HttpPost]
-        public void Add([FromBody] Greeting greeting)
+        public IHttpActionResult Add([FromBody] Greeting greeting)
         {
             // map from the DTO to the entity
             var entity = _mapper.Map<Entities.Greeting>(greeting);
             // add to the repository
             _greetingRepository.Add(entity);
+
+            string location = Request.RequestUri + "/" + entity.Id;
+            return Created(location, _mapper.Map<Greeting>(entity));
         }
 
         /// <summary>
         ///     Delete a greeting.
         /// </summary>
         [HttpDelete]
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
             // delete from the repository
             _greetingRepository.Delete(id);
+
+            return new StatusCodeResult(HttpStatusCode.NoContent, this);
         }
     }
 }

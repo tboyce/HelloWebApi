@@ -39,6 +39,8 @@ namespace HelloWebApi.Repositories
         /// </summary>
         public void Add(Greeting greeting)
         {
+            // fake an auto-incrementing database identity
+            greeting.Id = _greetings.Max(x => x.Id) + 1;
             _greetings.Add(greeting);
         }
 
