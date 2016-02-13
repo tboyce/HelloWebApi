@@ -18,7 +18,7 @@ namespace HelloWebApi
             var container = new UnityContainer();
 
             // create an AutoMapper configuration
-            var config = AutomapperConfig.Configure();
+            var config = DtoMapperConfiguration.Build();
 
             // register a dependency, in this case a mapping from the greeting repository interface to the greeting repository implementation
             // this is a very common way to register dependencies (and can actually be done by convention, but done explicitly here for demo purposes)

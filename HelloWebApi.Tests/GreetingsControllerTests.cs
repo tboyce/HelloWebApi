@@ -23,7 +23,7 @@ namespace HelloWebApi.Tests
         public GreetingsControllerTests()
         {
             _repository = Mock.Of<IGreetingRepository>();
-            _controller = new GreetingsController(_repository, AutomapperConfig.Configure().CreateMapper())
+            _controller = new GreetingsController(_repository, DtoMapperConfiguration.Build().CreateMapper())
             {
                 Request = new HttpRequestMessage {RequestUri = new Uri(ApiUrl)},
                 Configuration = new HttpConfiguration()
