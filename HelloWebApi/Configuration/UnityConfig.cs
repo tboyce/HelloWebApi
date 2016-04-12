@@ -18,14 +18,14 @@ namespace HelloWebApi.Configuration
             var container = new UnityContainer();
 
             // create an AutoMapper configuration
-            var config = DtoMapperConfiguration.Build();
+            var mapperConfiguration = DtoMapperConfiguration.Build();
 
             // register a dependency, in this case a mapping from the greeting repository interface to the greeting repository implementation
             // this is a very common way to register dependencies (and can actually be done by convention, but done explicitly here for demo purposes)
             container.RegisterType<IGreetingRepository, GreetingRepository>();
 
             // here we are registering AutoMapper and controlling how Unity creates the instance by specifying an injection factory
-            container.RegisterType<IMapper>(new InjectionFactory(x => config.CreateMapper()));
+            container.RegisterType<IMapper>(new InjectionFactory(x => mapperConfiguration.CreateMapper()));
 
             // Web API has built in support for dependency injection by setting the DependencyResolver property on the configuration object
             // here we register the Unity container with Web API as a dependency resolver
