@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace HelloWebApi
+namespace HelloWebApi.Configuration
 {
     /// <summary>
     /// AutoMapper is used to map between entities and DTOs.

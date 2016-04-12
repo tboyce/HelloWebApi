@@ -134,9 +134,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DtoMapperConfiguration.cs" />
+    <Compile Include="Configuration\DtoMapperConfiguration.cs" />
     <Compile Include="Entities\Greeting.cs" />
-    <Compile Include="UnityConfig.cs" />
+    <Compile Include="Configuration\UnityConfig.cs" />
     <Compile Include="Controllers\GreetingsController.cs" />
     <Compile Include="Models\Greeting.cs" />
     <Compile Include="Repositories\GreetingRepository.cs" />

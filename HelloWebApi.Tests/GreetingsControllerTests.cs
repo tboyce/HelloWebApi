@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Web.Http;
 using FluentAssertions;
+using HelloWebApi.Configuration;
 using HelloWebApi.Controllers;
 using HelloWebApi.Models;
 using HelloWebApi.Repositories;

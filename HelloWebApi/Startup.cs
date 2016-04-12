@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using HelloWebApi.Configuration;
 using Owin;
 
 namespace HelloWebApi
