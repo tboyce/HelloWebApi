@@ -5,6 +5,7 @@ using System.Web.Http.Results;
 using AutoMapper;
 using HelloWebApi.Models;
 using HelloWebApi.Repositories;
+using Microsoft.Practices.Unity;
 
 namespace HelloWebApi.Controllers
 {
@@ -24,7 +25,7 @@ namespace HelloWebApi.Controllers
         ///     This is dependency injection. We specify interfaces to be injected into the constructor.
         ///     Because we registered Unity with Web API as a dependency resolver, it knows to ask Unity for dependencies when creating controller instances.
         /// </summary>
-        public GreetingsController(IGreetingRepository greetingRepository, IMapper mapper)
+        public GreetingsController(IGreetingRepository greetingRepository, [Dependency("dtoMapper")] IMapper mapper)
         {
             _mapper = mapper;
             _greetingRepository = greetingRepository;

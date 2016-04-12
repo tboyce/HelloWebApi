@@ -9,7 +9,7 @@ namespace HelloWebApi.Repositories
     ///     It simply uses an in-memory List to store data.
     ///     In a real application this would probably use Entity Framework to access a database.
     /// </summary>
-    internal class GreetingRepository : IGreetingRepository
+    public class GreetingRepository : IGreetingRepository
     {
         private static List<Greeting> _greetings;
 
