@@ -1,10 +1,11 @@
 using System.Web.Http;
 using AutoMapper;
+using HelloWebApi.Configuration;
 using HelloWebApi.Repositories;
 using Microsoft.Practices.Unity;
 using Unity.WebApi;
 
-namespace HelloWebApi.Configuration
+namespace HelloWebApi
 {
     /// <summary>
     ///     Unity is a dependency injection container.

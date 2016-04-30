@@ -1,31 +1,37 @@
 ﻿using System.Web.Http;
-using HelloWebApi.Configuration;
+using HelloWebApi;
+using Microsoft.Owin;
 using Owin;
+
+[assembly: OwinStartup(typeof(Startup))]
 
 namespace HelloWebApi
 {
     /// <summary>
-    /// This is the OWIN startup class (located by convention).
+    ///     This is the class that starts the web application using OWIN.
     /// </summary>
     public class Startup
     {
-        public void Configuration(IAppBuilder appBuilder)
+        public void Configuration(IAppBuilder app)
         {
-            // create a configuration for Web API
-            var configuration = new HttpConfiguration();
+            // create an HTTP configuration
+            var config = new HttpConfiguration();
 
-            // configure routes for Web API
-            configuration.Routes.MapHttpRoute(
-                name: "Default Route",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new {id = RouteParameter.Optional}
-                );
+            // configure Enterprise Library
+            EntLibConfig.Register();
+
+            // configure Web API
+            WebApiConfig.Register(config);
 
             // configure Unity
-            UnityConfig.RegisterComponents(configuration);
+            UnityConfig.RegisterComponents(config);
 
-            // register Web API with OWIN
-            appBuilder.UseWebApi(configuration);
+            // map to the /api path
+            app.Map("/api", api =>
+            {
+                // register Web API with this path
+                api.UseWebApi(config);
+            });
         }
     }
 }

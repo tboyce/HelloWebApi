@@ -16,6 +16,7 @@ namespace HelloWebApi.Controllers
     ///     You can implement whichever HTTP verbs make sense for your use case.
     ///     Web API will automatically return an error if a request contains a verb that is not implemented by your controller.
     /// </summary>
+    [Route("greetings")]
     public class GreetingsController : ApiController
     {
         private readonly IGreetingRepository _greetingRepository;
