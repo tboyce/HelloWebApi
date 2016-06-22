@@ -2,6 +2,7 @@
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Results;
+using System.Web.Http.Routing;
 using AutoMapper;
 using HelloWebApi.Models;
 using HelloWebApi.Repositories;
@@ -16,6 +17,7 @@ namespace HelloWebApi.Controllers
     ///     You can implement whichever HTTP verbs make sense for your use case.
     ///     Web API will automatically return an error if a request contains a verb that is not implemented by your controller.
     /// </summary>
+    [RoutePrefix("api")]
     public class GreetingsController : ApiController
     {
         private readonly IGreetingRepository _greetingRepository;
@@ -34,6 +36,7 @@ namespace HelloWebApi.Controllers
         /// <summary>
         ///     Get all greetings.
         /// </summary>
+        [Route("greetings")]
         [HttpGet]
         public IHttpActionResult Get()
         {
@@ -48,6 +51,7 @@ namespace HelloWebApi.Controllers
         /// <summary>
         ///     Get a specific greeting.
         /// </summary>
+        [Route("greeting/{id}", Name = "Get")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
@@ -66,6 +70,7 @@ namespace HelloWebApi.Controllers
         /// <summary>
         ///     Add a new greeting.
         /// </summary>
+        [Route("greetings")]
         [HttpPost]
         public IHttpActionResult Add([FromBody] Greeting greeting)
         {
@@ -74,13 +79,14 @@ namespace HelloWebApi.Controllers
             // add to the repository
             _greetingRepository.Add(entity);
 
-            string location = Request.RequestUri + "/" + entity.Id;
+            string location = new UrlHelper(Request).Link("Get", new {id = entity.Id});
             return Created(location, _mapper.Map<Greeting>(entity));
         }
 
         /// <summary>
         ///     Delete a greeting.
         /// </summary>
+        [Route("greeting/{id}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {

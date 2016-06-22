@@ -86,6 +86,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HelloWebApi.Entities\HelloWebApi.Entities.csproj">
+      <Project>{81a5f56a-7630-4d29-80d6-7b5701301e61}</Project>
+      <Name>HelloWebApi.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelloWebApi.Models\HelloWebApi.Models.csproj">
+      <Project>{147a2cab-b926-4bbb-9f45-1f9cad2b5b84}</Project>
+      <Name>HelloWebApi.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HelloWebApi\HelloWebApi.csproj">
       <Project>{73fd7378-080f-44cc-9750-c82031e5b27a}</Project>
       <Name>HelloWebApi</Name>

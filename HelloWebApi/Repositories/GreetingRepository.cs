@@ -13,7 +13,7 @@ namespace HelloWebApi.Repositories
     {
         private static List<Greeting> _greetings;
 
-        public GreetingRepository()
+        static GreetingRepository()
         {
             SetDefaultData();
         }
@@ -60,7 +60,7 @@ namespace HelloWebApi.Repositories
         /// <summary>
         ///     Sets some default data. This would normally be stored in a database.
         /// </summary>
-        private void SetDefaultData()
+        private static void SetDefaultData()
         {
             if (_greetings == null)
             {

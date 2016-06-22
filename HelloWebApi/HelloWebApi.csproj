@@ -118,10 +118,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Controllers\README.md" />
-    <Content Include="Entities\README.md" />
-    <Content Include="Models\README.md" />
     <Content Include="Repositories\README.md" />
-    <Content Include="ServiceAgents\README.md" />
     <Content Include="README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -135,16 +132,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\DtoMapperConfiguration.cs" />
-    <Compile Include="Entities\Greeting.cs" />
     <Compile Include="Configuration\UnityConfig.cs" />
     <Compile Include="Controllers\GreetingsController.cs" />
-    <Compile Include="Models\Greeting.cs" />
     <Compile Include="Repositories\GreetingRepository.cs" />
     <Compile Include="Repositories\IGreetingRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelloWebApi.Entities\HelloWebApi.Entities.csproj">
+      <Project>{81a5f56a-7630-4d29-80d6-7b5701301e61}</Project>
+      <Name>HelloWebApi.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelloWebApi.Models\HelloWebApi.Models.csproj">
+      <Project>{147a2cab-b926-4bbb-9f45-1f9cad2b5b84}</Project>
+      <Name>HelloWebApi.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

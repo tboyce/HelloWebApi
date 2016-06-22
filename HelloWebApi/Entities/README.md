@@ -1,1 +1,0 @@
-﻿Typically enterprise entities would be defined in a separate shared library.
