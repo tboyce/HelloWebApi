@@ -6,6 +6,7 @@ using AutoMapper;
 using HelloWebApi.Models;
 using HelloWebApi.Repositories;
 using Microsoft.Practices.Unity;
+using Swashbuckle.Swagger.Annotations;
 
 namespace HelloWebApi.Controllers
 {
@@ -37,6 +38,7 @@ namespace HelloWebApi.Controllers
         /// </summary>
         [Route("greetings")]
         [HttpGet]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(IEnumerable<Greeting>))]
         public IHttpActionResult Get()
         {
             // get all greetings from the repository
@@ -52,6 +54,8 @@ namespace HelloWebApi.Controllers
         /// </summary>
         [Route("greeting/{id}")]
         [HttpGet]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Greeting))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
         public IHttpActionResult Get(int id)
         {
             // get the greeting from the repository
@@ -71,6 +75,7 @@ namespace HelloWebApi.Controllers
         /// </summary>
         [Route("greetings")]
         [HttpPost]
+        [SwaggerResponse(HttpStatusCode.Created, Type = typeof(Greeting))]
         public IHttpActionResult Add([FromBody] Greeting greeting)
         {
             // map from the DTO to the entity
@@ -87,6 +92,7 @@ namespace HelloWebApi.Controllers
         /// </summary>
         [Route("greeting/{id}")]
         [HttpDelete]
+        [SwaggerResponse(HttpStatusCode.NoContent)]
         public IHttpActionResult Delete(int id)
         {
             // delete from the repository

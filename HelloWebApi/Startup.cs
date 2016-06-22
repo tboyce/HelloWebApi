@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using HelloWebApi.Configuration;
 using Owin;
+using Swashbuckle.Application;
 
 namespace HelloWebApi
 {
@@ -19,6 +20,11 @@ namespace HelloWebApi
 
             // configure Unity
             UnityConfig.RegisterComponents(configuration);
+
+            // configure swagger
+            configuration
+                .EnableSwagger(c => c.SingleApiVersion("v1", "Greetings API"))
+                .EnableSwaggerUi();
 
             // register Web API with OWIN
             appBuilder.UseWebApi(configuration);
