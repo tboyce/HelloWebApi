@@ -15,11 +15,7 @@ namespace HelloWebApi
             var configuration = new HttpConfiguration();
 
             // configure routes for Web API
-            configuration.Routes.MapHttpRoute(
-                name: "Default Route",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new {id = RouteParameter.Optional}
-                );
+            configuration.MapHttpAttributeRoutes();
 
             // configure Unity
             UnityConfig.RegisterComponents(configuration);

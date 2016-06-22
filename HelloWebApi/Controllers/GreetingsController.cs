@@ -16,6 +16,7 @@ namespace HelloWebApi.Controllers
     ///     You can implement whichever HTTP verbs make sense for your use case.
     ///     Web API will automatically return an error if a request contains a verb that is not implemented by your controller.
     /// </summary>
+    [RoutePrefix("api")]
     public class GreetingsController : ApiController
     {
         private readonly IGreetingRepository _greetingRepository;
@@ -34,6 +35,7 @@ namespace HelloWebApi.Controllers
         /// <summary>
         ///     Get all greetings.
         /// </summary>
+        [Route("greetings")]
         [HttpGet]
         public IHttpActionResult Get()
         {
@@ -48,6 +50,7 @@ namespace HelloWebApi.Controllers
         /// <summary>
         ///     Get a specific greeting.
         /// </summary>
+        [Route("greeting/{id}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
@@ -66,6 +69,7 @@ namespace HelloWebApi.Controllers
         /// <summary>
         ///     Add a new greeting.
         /// </summary>
+        [Route("greetings")]
         [HttpPost]
         public IHttpActionResult Add([FromBody] Greeting greeting)
         {
@@ -81,6 +85,7 @@ namespace HelloWebApi.Controllers
         /// <summary>
         ///     Delete a greeting.
         /// </summary>
+        [Route("greeting/{id}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
