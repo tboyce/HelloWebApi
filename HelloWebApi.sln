@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWebApi", "HelloWebApi\HelloWebApi.csproj", "{73FD7378-080F-44CC-9750-C82031E5B27A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWebApi.Tests", "HelloWebApi.Tests\HelloWebApi.Tests.csproj", "{6FDB69EC-3E57-4D8A-BF9C-34E2572E05B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWebApi.Console", "HelloWebApi.Console\HelloWebApi.Console.csproj", "{11D7D760-5C7B-444B-B2F5-B9DAECC4EAB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6FDB69EC-3E57-4D8A-BF9C-34E2572E05B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FDB69EC-3E57-4D8A-BF9C-34E2572E05B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FDB69EC-3E57-4D8A-BF9C-34E2572E05B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D7D760-5C7B-444B-B2F5-B9DAECC4EAB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D7D760-5C7B-444B-B2F5-B9DAECC4EAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D7D760-5C7B-444B-B2F5-B9DAECC4EAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D7D760-5C7B-444B-B2F5-B9DAECC4EAB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

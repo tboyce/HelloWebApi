@@ -56,7 +56,7 @@ namespace HelloWebApi.Controllers
         [HttpGet]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Greeting))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult GetById(int id)
         {
             // get the greeting from the repository
             var greeting = _greetingRepository.Get(id);

@@ -70,8 +70,8 @@ namespace HelloWebApi.Tests
             public Get()
             {
                 Mock.Get(_repository).Setup(x => x.Get(1)).Returns(new Entities.Greeting());
-                _okResponse = _controller.Get(1).ExecuteAsync(new CancellationToken()).Result;
-                _errorResponse = _controller.Get(2).ExecuteAsync(new CancellationToken()).Result;
+                _okResponse = _controller.GetById(1).ExecuteAsync(new CancellationToken()).Result;
+                _errorResponse = _controller.GetById(2).ExecuteAsync(new CancellationToken()).Result;
             }
 
             [TestMethod]
