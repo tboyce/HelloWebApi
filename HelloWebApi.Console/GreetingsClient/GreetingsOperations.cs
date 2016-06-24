@@ -47,7 +47,7 @@ namespace HelloWebApi.Console.Greetings
         /// <param name='cancellationToken'>
         /// Cancellation token.
         /// </param>
-        public async Task<HttpOperationResponse<object>> AddWithOperationResponseAsync(Greeting greeting, CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async Task<HttpOperationResponse<Greeting>> AddWithOperationResponseAsync(Greeting greeting, CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // Validate
             if (greeting == null)
@@ -131,26 +131,12 @@ namespace HelloWebApi.Console.Greetings
             }
             
             // Create Result
-            HttpOperationResponse<object> result = new HttpOperationResponse<object>();
+            HttpOperationResponse<Greeting> result = new HttpOperationResponse<Greeting>();
             result.Request = httpRequest;
             result.Response = httpResponse;
             
             // Deserialize Response
-            if (statusCode == HttpStatusCode.OK)
-            {
-                string resultModel = default(string);
-                JToken responseDoc = null;
-                if (string.IsNullOrEmpty(responseContent) == false)
-                {
-                    responseDoc = JToken.Parse(responseContent);
-                }
-                if (responseDoc != null)
-                {
-                    resultModel = responseDoc.ToString(Newtonsoft.Json.Formatting.Indented);
-                }
-                result.Body = resultModel;
-            }
-            if (statusCode == HttpStatusCode.Created)
+            if (statusCode == HttpStatusCode.OK || statusCode == HttpStatusCode.Created)
             {
                 Greeting resultModel = new Greeting();
                 JToken responseDoc = null;
@@ -178,7 +164,7 @@ namespace HelloWebApi.Console.Greetings
         /// <param name='cancellationToken'>
         /// Cancellation token.
         /// </param>
-        public async Task<HttpOperationResponse<string>> DeleteWithOperationResponseAsync(int id, CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async Task<HttpOperationResponse<object>> DeleteWithOperationResponseAsync(int id, CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // Tracing
             bool shouldTrace = ServiceClientTracing.IsEnabled;
@@ -248,25 +234,13 @@ namespace HelloWebApi.Console.Greetings
             }
             
             // Create Result
-            HttpOperationResponse<string> result = new HttpOperationResponse<string>();
+            HttpOperationResponse<object> result = new HttpOperationResponse<object>();
             result.Request = httpRequest;
             result.Response = httpResponse;
             
             // Deserialize Response
-            if (statusCode == HttpStatusCode.OK)
-            {
-                string resultModel = default(string);
-                JToken responseDoc = null;
-                if (string.IsNullOrEmpty(responseContent) == false)
-                {
-                    responseDoc = JToken.Parse(responseContent);
-                }
-                if (responseDoc != null)
-                {
-                    resultModel = responseDoc.ToString(Newtonsoft.Json.Formatting.Indented);
-                }
-                result.Body = resultModel;
-            }
+            object resultModel = default(object);
+            result.Body = resultModel;
             
             if (shouldTrace)
             {

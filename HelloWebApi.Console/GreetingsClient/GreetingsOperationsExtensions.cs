@@ -20,7 +20,7 @@ namespace HelloWebApi.Console.Greetings
         /// <param name='greeting'>
         /// Required.
         /// </param>
-        public static object Add(this IGreetingsOperations operations, Greeting greeting)
+        public static Greeting Add(this IGreetingsOperations operations, Greeting greeting)
         {
             return Task.Factory.StartNew((object s) => 
             {
@@ -38,9 +38,9 @@ namespace HelloWebApi.Console.Greetings
         /// <param name='cancellationToken'>
         /// Cancellation token.
         /// </param>
-        public static async Task<object> AddAsync(this IGreetingsOperations operations, Greeting greeting, CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public static async Task<Greeting> AddAsync(this IGreetingsOperations operations, Greeting greeting, CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Microsoft.Rest.HttpOperationResponse<object> result = await operations.AddWithOperationResponseAsync(greeting, cancellationToken).ConfigureAwait(false);
+            Microsoft.Rest.HttpOperationResponse<HelloWebApi.Console.Greetings.Models.Greeting> result = await operations.AddWithOperationResponseAsync(greeting, cancellationToken).ConfigureAwait(false);
             return result.Body;
         }
         
@@ -50,7 +50,7 @@ namespace HelloWebApi.Console.Greetings
         /// <param name='id'>
         /// Required.
         /// </param>
-        public static string Delete(this IGreetingsOperations operations, int id)
+        public static object Delete(this IGreetingsOperations operations, int id)
         {
             return Task.Factory.StartNew((object s) => 
             {
@@ -68,9 +68,9 @@ namespace HelloWebApi.Console.Greetings
         /// <param name='cancellationToken'>
         /// Cancellation token.
         /// </param>
-        public static async Task<string> DeleteAsync(this IGreetingsOperations operations, int id, CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public static async Task<object> DeleteAsync(this IGreetingsOperations operations, int id, CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Microsoft.Rest.HttpOperationResponse<string> result = await operations.DeleteWithOperationResponseAsync(id, cancellationToken).ConfigureAwait(false);
+            Microsoft.Rest.HttpOperationResponse<object> result = await operations.DeleteWithOperationResponseAsync(id, cancellationToken).ConfigureAwait(false);
             return result.Body;
         }
         

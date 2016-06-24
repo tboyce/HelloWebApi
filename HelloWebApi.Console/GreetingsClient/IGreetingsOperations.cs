@@ -19,7 +19,7 @@ namespace HelloWebApi.Console.Greetings
         /// <param name='cancellationToken'>
         /// Cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> AddWithOperationResponseAsync(Greeting greeting, CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        Task<HttpOperationResponse<Greeting>> AddWithOperationResponseAsync(Greeting greeting, CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         
         /// <param name='id'>
         /// Required.
@@ -27,7 +27,7 @@ namespace HelloWebApi.Console.Greetings
         /// <param name='cancellationToken'>
         /// Cancellation token.
         /// </param>
-        Task<HttpOperationResponse<string>> DeleteWithOperationResponseAsync(int id, CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        Task<HttpOperationResponse<object>> DeleteWithOperationResponseAsync(int id, CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         
         /// <param name='cancellationToken'>
         /// Cancellation token.

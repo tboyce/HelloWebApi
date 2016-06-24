@@ -75,6 +75,7 @@ namespace HelloWebApi.Controllers
         /// </summary>
         [Route("greetings")]
         [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Greeting))]
         [SwaggerResponse(HttpStatusCode.Created, Type = typeof(Greeting))]
         public IHttpActionResult Add([FromBody] Greeting greeting)
         {
@@ -92,6 +93,7 @@ namespace HelloWebApi.Controllers
         /// </summary>
         [Route("greeting/{id}")]
         [HttpDelete]
+        [SwaggerResponse(HttpStatusCode.OK)]
         [SwaggerResponse(HttpStatusCode.NoContent)]
         public IHttpActionResult Delete(int id)
         {
