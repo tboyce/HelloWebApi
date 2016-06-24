@@ -117,7 +117,7 @@ namespace HelloWebApi.Console.Greetings
             HttpStatusCode statusCode = httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string responseContent = await httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-            if (statusCode != HttpStatusCode.OK && statusCode != HttpStatusCode.Created)
+            if (statusCode != HttpStatusCode.Created)
             {
                 HttpOperationException<object> ex = new HttpOperationException<object>();
                 ex.Request = httpRequest;
@@ -136,7 +136,7 @@ namespace HelloWebApi.Console.Greetings
             result.Response = httpResponse;
             
             // Deserialize Response
-            if (statusCode == HttpStatusCode.OK || statusCode == HttpStatusCode.Created)
+            if (statusCode == HttpStatusCode.Created)
             {
                 Greeting resultModel = new Greeting();
                 JToken responseDoc = null;
@@ -220,7 +220,7 @@ namespace HelloWebApi.Console.Greetings
             HttpStatusCode statusCode = httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string responseContent = await httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-            if (statusCode != HttpStatusCode.OK && statusCode != HttpStatusCode.NoContent)
+            if (statusCode != HttpStatusCode.NoContent)
             {
                 HttpOperationException<object> ex = new HttpOperationException<object>();
                 ex.Request = httpRequest;
