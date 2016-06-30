@@ -1,5 +1,7 @@
 ﻿using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 using HelloWebApi.Configuration;
+using HelloWebApi.ErrorHandling;
 using Owin;
 using Swashbuckle.Application;
 
@@ -17,6 +19,9 @@ namespace HelloWebApi
 
             // configure routes for Web API
             configuration.MapHttpAttributeRoutes();
+
+            // handle unhandled exceptions
+            configuration.Services.Replace(typeof(IExceptionHandler), new ErrorMessageExceptionHandler());
 
             // configure Unity
             UnityConfig.RegisterComponents(configuration);

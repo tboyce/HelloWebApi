@@ -142,6 +142,9 @@
     <Compile Include="Entities\Greeting.cs" />
     <Compile Include="Configuration\UnityConfig.cs" />
     <Compile Include="Controllers\GreetingsController.cs" />
+    <Compile Include="ErrorHandling\ErrorMessage.cs" />
+    <Compile Include="ErrorHandling\ErrorMessageExceptionHandler.cs" />
+    <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Greeting.cs" />
     <Compile Include="Repositories\GreetingRepository.cs" />
     <Compile Include="Repositories\IGreetingRepository.cs" />

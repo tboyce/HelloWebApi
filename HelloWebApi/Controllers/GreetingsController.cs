@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Results;
@@ -18,6 +19,7 @@ namespace HelloWebApi.Controllers
     ///     Web API will automatically return an error if a request contains a verb that is not implemented by your controller.
     /// </summary>
     [RoutePrefix("api")]
+    [SwaggerResponse(HttpStatusCode.InternalServerError, Type = typeof(Error))]
     public class GreetingsController : ApiController
     {
         private readonly IGreetingRepository _greetingRepository;
