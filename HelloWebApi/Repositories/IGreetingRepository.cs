@@ -28,5 +28,10 @@ namespace HelloWebApi.Repositories
         ///     Delete a greeting
         /// </summary>
         void Delete(int id);
+
+        /// <summary>
+        ///     Update a greeting
+        /// </summary>
+        void Update(Greeting entity);
     }
 }
