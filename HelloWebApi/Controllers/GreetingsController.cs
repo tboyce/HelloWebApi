@@ -94,6 +94,8 @@ namespace HelloWebApi.Controllers
         ///     Add a new greeting.
         /// </summary>
         [HttpPut]
+        [SwaggerResponseRemoveDefaults]
+        [SwaggerResponse(HttpStatusCode.NoContent)]
         public IHttpActionResult Update(int id, [FromBody] Greeting greeting)
         {
             // map from the DTO to the entity
