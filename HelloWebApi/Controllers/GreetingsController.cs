@@ -93,6 +93,7 @@ namespace HelloWebApi.Controllers
         /// <summary>
         ///     Add a new greeting.
         /// </summary>
+        [Route("greeting/{id}")]
         [HttpPut]
         [SwaggerResponseRemoveDefaults]
         [SwaggerResponse(HttpStatusCode.NoContent)]
