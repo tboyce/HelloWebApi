@@ -33,11 +33,6 @@ namespace HelloWebApi.Repositories
         /// </summary>
         public Greeting Get(int id)
         {
-            if (id <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(id), "Must be a positive number.");
-            }
-
             return _greetings.SingleOrDefault(x => x.Id == id);
         }
 

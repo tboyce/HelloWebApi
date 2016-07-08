@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Results;
@@ -43,12 +42,16 @@ namespace HelloWebApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(IEnumerable<Greeting>))]
         public IHttpActionResult Get()
         {
-            // get all greetings from the repository
-            var greetings = _greetingRepository.GetAll();
-            // map from the entity to the DTO
-            var result = _mapper.Map<IEnumerable<Greeting>>(greetings);
-            // return it
-            return Ok(result);
+            if (ModelState.IsValid)
+            {
+                // get all greetings from the repository
+                var greetings = _greetingRepository.GetAll();
+                // map from the entity to the DTO
+                var result = _mapper.Map<IEnumerable<Greeting>>(greetings);
+                // return it
+                return Ok(result);
+            }
+            return BadRequest(ModelState);
         }
 
         /// <summary>
@@ -60,16 +63,20 @@ namespace HelloWebApi.Controllers
         [SwaggerResponse(HttpStatusCode.NotFound)]
         public IHttpActionResult GetById(int id)
         {
-            // get the greeting from the repository
-            var greeting = _greetingRepository.Get(id);
-            if (greeting != null)
+            if (ModelState.IsValid)
             {
-                // map from the entity to the DTO
-                var result = _mapper.Map<Greeting>(greeting);
-                // return it
-                return Ok(result);
+                // get the greeting from the repository
+                var greeting = _greetingRepository.Get(id);
+                if (greeting != null)
+                {
+                    // map from the entity to the DTO
+                    var result = _mapper.Map<Greeting>(greeting);
+                    // return it
+                    return Ok(result);
+                }
+                return NotFound();
             }
-            return NotFound();
+            return BadRequest(ModelState);
         }
 
         /// <summary>
@@ -81,13 +88,17 @@ namespace HelloWebApi.Controllers
         [SwaggerResponse(HttpStatusCode.Created, Type = typeof(Greeting))]
         public IHttpActionResult Add([FromBody] Greeting greeting)
         {
-            // map from the DTO to the entity
-            var entity = _mapper.Map<Entities.Greeting>(greeting);
-            // add to the repository
-            _greetingRepository.Add(entity);
+            if (ModelState.IsValid)
+            {
+                // map from the DTO to the entity
+                var entity = _mapper.Map<Entities.Greeting>(greeting);
+                // add to the repository
+                _greetingRepository.Add(entity);
 
-            string location = Request.RequestUri + "/" + entity.Id;
-            return Created(location, _mapper.Map<Greeting>(entity));
+                string location = Request.RequestUri + "/" + entity.Id;
+                return Created(location, _mapper.Map<Greeting>(entity));
+            }
+            return BadRequest(ModelState);
         }
 
         /// <summary>
@@ -99,15 +110,19 @@ namespace HelloWebApi.Controllers
         [SwaggerResponse(HttpStatusCode.NoContent)]
         public IHttpActionResult Update(int id, [FromBody] Greeting greeting)
         {
-            // map from the DTO to the entity
-            var entity = _mapper.Map<Entities.Greeting>(greeting);
+            if (ModelState.IsValid)
+            {
+                // map from the DTO to the entity
+                var entity = _mapper.Map<Entities.Greeting>(greeting);
 
-            // update the entity
-            // if it does not exist the repository throws an exception, which gets converted to a 500 error
-            entity.Id = id;
-            _greetingRepository.Update(entity);
+                // update the entity
+                // if it does not exist the repository throws an exception, which gets converted to a 500 error
+                entity.Id = id;
+                _greetingRepository.Update(entity);
 
-            return new StatusCodeResult(HttpStatusCode.NoContent, this);
+                return new StatusCodeResult(HttpStatusCode.NoContent, this);
+            }
+            return BadRequest(ModelState);
         }
 
         /// <summary>
@@ -119,10 +134,14 @@ namespace HelloWebApi.Controllers
         [SwaggerResponse(HttpStatusCode.NoContent)]
         public IHttpActionResult Delete(int id)
         {
-            // delete from the repository
-            _greetingRepository.Delete(id);
+            if (ModelState.IsValid)
+            {
+                // delete from the repository
+                _greetingRepository.Delete(id);
 
-            return new StatusCodeResult(HttpStatusCode.NoContent, this);
+                return new StatusCodeResult(HttpStatusCode.NoContent, this);
+            }
+            return BadRequest(ModelState);
         }
     }
 }

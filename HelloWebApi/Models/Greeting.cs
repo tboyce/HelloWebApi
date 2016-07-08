@@ -1,4 +1,6 @@
-﻿namespace HelloWebApi.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HelloWebApi.Models
 {
     /// <summary>
     /// This is a greeting DTO.
@@ -7,6 +9,8 @@
     {
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(100)]
         public string Message { get; set; }
     }
 }
