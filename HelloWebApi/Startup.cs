@@ -29,7 +29,7 @@ namespace HelloWebApi
             // configure swagger
             configuration
                 .EnableSwagger(c => c.SingleApiVersion("v1", "Greetings API"))
-                .EnableSwaggerUi();
+                .EnableSwaggerUi(c => c.DocExpansion(DocExpansion.List));
 
             // register Web API with OWIN
             appBuilder.UseWebApi(configuration);
