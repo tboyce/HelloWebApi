@@ -15,7 +15,7 @@ namespace HelloWebApi
         public void Configuration(IAppBuilder appBuilder)
         {
             // create a configuration for Web API
-            var configuration = new HttpConfiguration();
+            var configuration = new HttpConfiguration(new HttpRouteCollection("api"));
 
             // configure routes for Web API
             configuration.MapHttpAttributeRoutes();
@@ -31,8 +31,12 @@ namespace HelloWebApi
                 .EnableSwagger(c => c.SingleApiVersion("v1", "Greetings API"))
                 .EnableSwaggerUi(c => c.DocExpansion(DocExpansion.List));
 
-            // register Web API with OWIN
-            appBuilder.UseWebApi(configuration);
+            appBuilder.Map("/api", api =>
+            {
+                // register Web API with OWIN
+                api.UseWebApi(configuration);
+            });
+
         }
     }
 }

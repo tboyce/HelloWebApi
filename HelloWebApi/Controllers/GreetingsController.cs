@@ -18,7 +18,7 @@ namespace HelloWebApi.Controllers
     ///     You can implement whichever HTTP verbs make sense for your use case.
     ///     Web API will automatically return an error if a request contains a verb that is not implemented by your controller.
     /// </summary>
-    [RoutePrefix("api")]
+    [RoutePrefix("")]
     [SwaggerResponse(HttpStatusCode.InternalServerError, Type = typeof(Error))]
     public class GreetingsController : ApiController
     {
