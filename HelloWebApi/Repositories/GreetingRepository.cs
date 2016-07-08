@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using HelloWebApi.Entities;
@@ -71,6 +72,19 @@ namespace HelloWebApi.Repositories
                 };
                 _greetings = new List<Greeting> {greeting};
             }
+        }
+
+        /// <summary>
+        ///     Update a greeting
+        /// </summary>
+        public void Update(Greeting greeting)
+        {
+            var existing = Get(greeting.Id);
+            if (existing == null)
+            {
+                throw new InvalidOperationException("Existing greeting not found.");
+            }
+            existing.Message = greeting.Message;
         }
     }
 }

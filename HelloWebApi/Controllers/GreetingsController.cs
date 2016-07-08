@@ -79,6 +79,23 @@ namespace HelloWebApi.Controllers
         }
 
         /// <summary>
+        ///     Add a new greeting.
+        /// </summary>
+        [HttpPut]
+        public IHttpActionResult Update(int id, [FromBody] Greeting greeting)
+        {
+            // map from the DTO to the entity
+            var entity = _mapper.Map<Entities.Greeting>(greeting);
+
+            // update the entity
+            // if it does not exist the repository throws an exception, which gets converted to a 500 error
+            entity.Id = id;
+            _greetingRepository.Update(entity);
+
+            return new StatusCodeResult(HttpStatusCode.NoContent, this);
+        }
+
+        /// <summary>
         ///     Delete a greeting.
         /// </summary>
         [HttpDelete]
